@@ -1,136 +1,227 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker King</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #000;
-            color: #00ff00;
-            margin: 0;
-            padding: 20px;
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-            overflow-y: scroll;
-        }
-        .profile {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            border: 3px solid #00ff00;
-        }
-        .experience {
-            margin-top: 20px;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .bar {
-            background-color: #444;
-            border-radius: 5px;
-            margin: 10px 0;
-            width: 100%;
-            height: 25px;
-            overflow: hidden;
-        }
-        .progress {
-            height: 100%;
-            background-color: #00ff00;
-            border-radius: 5px;
-            width: 0%;
-            transition: width 2s ease;
-        }
-        .about-me {
-            display: inline-block;
-            white-space: pre-wrap;
-        }
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #00ff00;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            text-decoration: none;
-        }
-        .button:hover {
-            background-color: #00cc00;
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="keywords" content="css3, html5, bootstrap4">
+
+<meta name="description" content="">
+<title>bKash Live Chat TrickTime</title>
+<style>
+            body {
+                padding: 0;
+                margin: 0;
+                font-family: 'Roboto', sans-serif;
+            }
+            header {
+                background: #616161;
+                height: 40px;
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+            .container {
+                width: 800px;
+                max-width: 100%;
+                margin: 0 auto;
+                color: #575962;
+            }
+            h4 {
+                font-weight: 500;
+                margin: 15px 0;
+            }
+            p {
+                line-height: 20px;
+                font-weight: 400;
+            }
+        </style>
+
+	<script type=“text/javascript” src=“https://cdn.capp.bka.sh/scripts/webview_bridge.js”></script>
+
 </head>
 <body>
+<div class="loader-wrapper" id="loader-wrapper">
+<div class="sk-cube-grid">
+<div class="sk-cube sk-cube1"></div>
+<div class="sk-cube sk-cube2"></div>
+<div class="sk-cube sk-cube3"></div>
+<div class="sk-cube sk-cube4"></div>
+<div class="sk-cube sk-cube5"></div>
+<div class="sk-cube sk-cube6"></div>
+<div class="sk-cube sk-cube7"></div>
+<div class="sk-cube sk-cube8"></div>
+<div class="sk-cube sk-cube9"></div>
+</div>
+</div>
+<style type="text/css">
 
-    <div class="profile">
-        <img src="https://raw.githubusercontent.com/Mehdi71x1/Hacker/refs/heads/main/admin.png" alt="Your Name">
-        <h1>Mehdi Hasan</h1>
-        <p class="about-me" id="aboutMe"></p>
-    </div>
+/*----------------------------
+   preloader 
+----------------------------*/
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 999999;
+}
 
-    <div class="experience">
-        <h2>My Skills</h2>
-        <div>HTML <span>98%</span></div>
-        <div class="bar">
-            <div class="progress" id="htmlProgress"></div>
-        </div>
-        <div>CSS <span>65%</span></div>
-        <div class="bar">
-            <div class="progress" id="cssProgress"></div>
-        </div>
-        <div>JavaScript <span>45%</span></div>
-        <div class="bar">
-            <div class="progress" id="jsProgress"></div>
-        </div>
-    </div>
+.sk-cube-grid {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: block;
+    font-size: 12px;
+    color: #565656;
+}
 
-    <div class="button-container">
-        <a href="https://t.me/Hacker_king_x" class="button">Contact Me</a>
-        <a href="http://hackerking.rf.gd/professional.html" class="button">Full Info</a>
-    </div>
+.sk-cube-grid .sk-cube {
+    width: 33%;
+    height: 33%;
+    background-color: rgb(223, 18, 109);
+    float: left;
+    -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+    animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+}
 
-    <script>
-        const aboutText = "Hey there! I'm Mehdi Hasan, a skilled app and web developer, as well as a cyber security expert. Let me transform your digital vision into reality while ensuring top-notch protection for your online assets.";
-        let index = 0;
+.sk-cube-grid .sk-cube1 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
 
-        function typeWriter() {
-            if (index < aboutText.length) {
-                document.getElementById("aboutMe").innerHTML += aboutText.charAt(index);
-                index++;
-                setTimeout(typeWriter, 50);
-            }
-        }
+.sk-cube-grid .sk-cube2 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
 
-        function animateProgress() {
-            document.getElementById("htmlProgress").style.width = "98%";
-            document.getElementById("cssProgress").style.width = "65%";
-            document.getElementById("jsProgress").style.width = "45%";
-        }
+.sk-cube-grid .sk-cube3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
 
-        typeWriter();
-        window.onload = animateProgress;
+.sk-cube-grid .sk-cube4 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
 
-        function scrollDown() {
-            window.scrollBy({
-                top: window.innerHeight,
-                behavior: 'smooth'
-            });
-        }
+.sk-cube-grid .sk-cube5 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
 
-        setTimeout(scrollDown, aboutText.length * 50);
-    </script>
+.sk-cube-grid .sk-cube6 {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-cube-grid .sk-cube7 {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.sk-cube-grid .sk-cube8 {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+}
+
+.sk-cube-grid .sk-cube9 {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+@-webkit-keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+
+}
+
+@keyframes sk-cubeGridScaleDelay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+
+}
+</style>
+
+<script type="text/javascript">
+             var url_string = window.location.href;
+             var url = new URL(url_string);
+             //var account = url.searchParams.get("c");
+			 var account = '3314022';
+			 
+			 var locale = url.searchParams.get("locale");
+             
+             if(account){
+             
+                 window.$_REVECHAT_API || (function(d, w) { var r = $_REVECHAT_API = function(c) {r._.push(c);}; w.__revechat_account=account;w.__revechat_version=2;
+                 r._= []; var rc = d.createElement('script'); rc.type = 'text/javascript'; rc.async = true; rc.setAttribute('charset', 'utf-8');
+                 rc.src = ('https:' == document.location.protocol ? 'https://' : 'https://') + 'livechat-dashboard.bkash.com/omnichannel-file/omnichannel-client/scripts/new-livechat.js?'+new Date().getTime();
+                 var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rc, s);
+                 })(document, window);
+				 
+				 
+
+                  $_REVECHAT_API(function(){
+				  
+				          
+                        if(locale)window.$_REVECHAT_API.setLanguage(locale);
+				  
+                          
+                        var iframe = document.getElementById('reve-chat-widget-holder');
+                        if(iframe) {
+                            var browser = iframe.contentWindow.$_REVECHAT.Browser;
+                            browser.isMobBrowser = function(){
+                                return true;
+                            };
+                           
+                        }
+
+                       var timerId = setInterval(function(){
+					         
+							var selector = document.getElementById('reve-chat-container-div'); 
+							
+                            if(selector && selector.clientHeight>0)							
+                            {
+							  // console.warn("looping.."+selector.clientHeight);	
+							   $_REVECHAT_API.Button.maximize();							  
+							   //clearInterval(timerId);
+							   
+							   var ss = document.getElementById("loader-wrapper");
+							   
+							   if(ss)  ss.style.display = "none";
+                            }							
+						 // console.warn("looping..");	 
+					   }, 500 );
+                  });
+              }
+          
+
+
+         </script>
 
 </body>
 </html>
